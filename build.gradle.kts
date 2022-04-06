@@ -9,8 +9,8 @@ val projectGroup: String by project
 val restAssuredVersion: String by project
 
 plugins {
-  kotlin("jvm") version "1.4.31"
-  id("org.jetbrains.kotlin.plugin.allopen") version "1.4.31"
+  kotlin("jvm") version "1.6.10"
+  kotlin("plugin.allopen") version "1.6.10"
   id("io.quarkus")
 }
 
@@ -33,8 +33,8 @@ subprojects {
   version = "latest"
 
   java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
   }
 
   dependencies {
@@ -58,7 +58,7 @@ subprojects {
   tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
       kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
         javaParameters = true
       }
     }
@@ -71,7 +71,6 @@ project(":share") { dependencies {} }
 project(":graphql-server") {
   dependencies {
     implementation("io.quarkus:quarkus-smallrye-graphql")
-    implementation("io.quarkus:quarkus-reactive-mysql-client")
     testImplementation("io.rest-assured:rest-assured:${restAssuredVersion}")
   }
 }
@@ -85,6 +84,6 @@ project(":batch") {
 
 /** @see https://docs.gradle.org/current/userguide/gradle_wrapper.html#customizing_wrapper */
 tasks.named<Wrapper>("wrapper") {
-  gradleVersion = "6.8.3"
+  gradleVersion = "7.4.2"
   distributionType = Wrapper.DistributionType.BIN
 }

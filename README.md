@@ -2,7 +2,7 @@
 
 ## Features
 
-* [Kotlin](https://kotlinlang.org/) (Java v11)
+* [Kotlin](https://kotlinlang.org/) (Java v17)
 * [Gradle](https://gradle.org/)
 * [Quarkus](https://quarkus.io/)
   with [multi project](http://gradle.monochromeroad.com/docs/userguide/multi_project_builds.html)
