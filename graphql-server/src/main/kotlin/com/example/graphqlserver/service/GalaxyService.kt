@@ -3,12 +3,13 @@ package com.example.graphqlserver.service
 import com.example.graphqlserver.entity.Film
 import com.example.graphqlserver.entity.Hero
 import com.example.graphqlserver.type.LightSaber
+import jakarta.enterprise.context.ApplicationScoped
 import java.time.LocalDate
 import java.time.Month
-import javax.enterprise.context.ApplicationScoped
 
 /**
  * Galaxy Service
+ *
  * @author treetips
  */
 @ApplicationScoped

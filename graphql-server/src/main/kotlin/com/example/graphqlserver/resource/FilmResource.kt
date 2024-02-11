@@ -3,11 +3,12 @@ package com.example.graphqlserver.resource
 import com.example.graphqlserver.entity.Film
 import com.example.graphqlserver.entity.Hero
 import com.example.graphqlserver.service.GalaxyService
-import javax.inject.Inject
+import jakarta.inject.Inject
 import org.eclipse.microprofile.graphql.*
 
 /**
  * Film Resolver
+ *
  * @author treetips
  */
 @GraphQLApi
