@@ -1,12 +1,13 @@
 package com.example.batch.service
 
 import com.example.share.service.ShareService
-import javax.enterprise.context.Dependent
+import jakarta.enterprise.context.Dependent
 
 /**
  * Greeting Service
+ *
  * @see <a href="https://quarkus.io/guides/picocli#simple-command-line-application">Simple command
- * line application</a>
+ *   line application</a>
  * @author treetips
  */
 @Dependent

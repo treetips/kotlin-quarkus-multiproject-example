@@ -9,8 +9,8 @@ val projectGroup: String by project
 val restAssuredVersion: String by project
 
 plugins {
-  kotlin("jvm") version "1.6.10"
-  kotlin("plugin.allopen") version "1.6.10"
+  kotlin("jvm") version "1.9.22"
+  kotlin("plugin.allopen") version "1.9.22"
   id("io.quarkus")
 }
 
@@ -33,8 +33,8 @@ subprojects {
   version = "latest"
 
   java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
   }
 
   dependencies {
@@ -58,7 +58,7 @@ subprojects {
   tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
       kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = JavaVersion.VERSION_21.toString()
         javaParameters = true
       }
     }
@@ -84,6 +84,6 @@ project(":batch") {
 
 /** @see https://docs.gradle.org/current/userguide/gradle_wrapper.html#customizing_wrapper */
 tasks.named<Wrapper>("wrapper") {
-  gradleVersion = "7.4.2"
+  gradleVersion = "8.6"
   distributionType = Wrapper.DistributionType.BIN
 }
