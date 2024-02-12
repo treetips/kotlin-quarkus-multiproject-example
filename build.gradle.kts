@@ -75,6 +75,16 @@ project(":graphql-server") {
   }
 }
 
+project(":restfulapi-server") {
+  dependencies {
+    implementation(project(":share"))
+    implementation(
+        enforcedPlatform("${quarkusPlatformGroupId}:quarkus-camel-bom:${quarkusPlatformVersion}"))
+    implementation("io.quarkus:quarkus-resteasy-jackson")
+    implementation("org.apache.camel.quarkus:camel-quarkus-bean-validator")
+  }
+}
+
 project(":batch") {
   dependencies {
     implementation(project(":share"))

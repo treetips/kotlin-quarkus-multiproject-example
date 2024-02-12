@@ -13,7 +13,7 @@ import org.eclipse.microprofile.graphql.*
  */
 @GraphQLApi
 class FilmResource {
-  @Inject lateinit var galaxyService: GalaxyService
+  @Inject private lateinit var galaxyService: GalaxyService
 
   @Query("allFilms")
   @Description("Get all Films from a galaxy far far away")
