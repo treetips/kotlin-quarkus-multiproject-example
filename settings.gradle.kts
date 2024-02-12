@@ -11,4 +11,4 @@ pluginManagement {
 
 rootProject.name = "kotlin-quarkus-multiproject-example"
 
-include("share", "batch", "graphql-server")
+include("share", "batch", "graphql-server", "restfulapi-server")
