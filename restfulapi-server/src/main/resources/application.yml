@@ -7,9 +7,15 @@ quarkus:
         - http://localhost:3000
         # Backend
         - http://localhost:8080
+        # Swagger
+        - https://editor.swagger.io/
+        - https://editor-next.swagger.io/
       methods:
         - GET
         - POST
+        - PUT
+        - PATCH
+        - DELETE
         - OPTIONS
       headers: "*"
   virtual-threads:
