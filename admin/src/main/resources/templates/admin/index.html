@@ -1,0 +1,23 @@
+{#include layout/layout}
+  {#title}{item.pageTitle}{/title}
+  {#headEnd}
+  <link rel="stylesheet" href="/static/admin/styles/index.css" type="text/css">
+  {/headEnd}
+
+  <div>
+  <h1>TOP</h1>
+  <table class="data">
+  <tr>
+    <th>pageTitle</th>
+    <th>id</th>
+    <th>title</th>
+  </tr>
+  <tr>
+  <td>{item.pageTitle}</td>
+  <td>{item.id}</td>
+  <td>{item.name}</td>
+  </tr>
+  </table>
+  <a href="/admin/about">About Page</a>
+  </div>
+{/include}

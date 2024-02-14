@@ -12,6 +12,7 @@ plugins {
   kotlin("jvm") version "1.9.22"
   kotlin("plugin.allopen") version "1.9.22"
   id("io.quarkus")
+  id("idea")
 }
 
 repositories { mavenCentral() }
@@ -68,6 +69,13 @@ subprojects {
 
 project(":share") { dependencies {} }
 
+project(":admin") {
+  dependencies {
+    implementation(project(":share"))
+    implementation("io.quarkus:quarkus-resteasy-reactive-qute")
+  }
+}
+
 project(":graphql-server") {
   dependencies {
     implementation("io.quarkus:quarkus-smallrye-graphql")
@@ -89,6 +97,13 @@ project(":batch") {
   dependencies {
     implementation(project(":share"))
     implementation("io.quarkus:quarkus-picocli")
+  }
+}
+
+idea {
+  module {
+    isDownloadJavadoc = false
+    isDownloadSources = true
   }
 }
 

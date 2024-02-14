@@ -1,0 +1,17 @@
+header {
+  background-color: lightpink;
+}
+
+.header-menu {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  place-items: center;
+}
+
+footer {
+  background-color: lightblue;
+}
+
+img.logo {
+  width: 40px;
+}
