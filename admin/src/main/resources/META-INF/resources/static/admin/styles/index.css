@@ -1,0 +1,10 @@
+table.data,
+table.data th,
+table.data td {
+  border: solid 1px gray;
+  margin: 5px;
+}
+
+table.data th {
+  background-color: lightblue;
+}
