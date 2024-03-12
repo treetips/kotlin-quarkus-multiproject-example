@@ -1,0 +1,9 @@
+quarkus:
+  grpc:
+    server:
+      use-separate-server: false
+    clients:
+      hello:
+        host: localhost
+  virtual-threads:
+    enabled: true
