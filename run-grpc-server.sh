@@ -1,3 +1,3 @@
 #!/bin/sh
 . ./env.sh
-run "admin"
+run "grpc-server"

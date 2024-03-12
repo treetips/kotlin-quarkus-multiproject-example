@@ -83,6 +83,8 @@ project(":graphql-server") {
   }
 }
 
+project(":grpc-server") { dependencies { implementation("io.quarkus:quarkus-grpc") } }
+
 project(":restfulapi-server") {
   dependencies {
     implementation(project(":share"))

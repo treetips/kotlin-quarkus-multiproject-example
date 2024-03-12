@@ -1,0 +1,1 @@
+GRPC localhost:8080/com.example.grpcserver.grpc.Greeter/SayHello
