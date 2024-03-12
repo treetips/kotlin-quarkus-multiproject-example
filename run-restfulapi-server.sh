@@ -1,2 +1,3 @@
 #!/bin/sh
-./gradlew clean :restfulapi-server:quarkusDev
+. ./env.sh
+run "restfulapi-server"

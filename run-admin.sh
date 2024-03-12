@@ -1,2 +1,3 @@
 #!/bin/sh
-./gradlew clean :admin:quarkusDev
+. ./env.sh
+run "admin"
