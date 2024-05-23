@@ -9,8 +9,8 @@ val projectGroup: String by project
 val restAssuredVersion: String by project
 
 plugins {
-  kotlin("jvm") version "1.9.22"
-  kotlin("plugin.allopen") version "1.9.22"
+  kotlin("jvm") version "2.0.0"
+  kotlin("plugin.allopen") version "2.0.0"
   id("io.quarkus")
   id("idea")
 }
@@ -111,6 +111,6 @@ idea {
 
 /** @see https://docs.gradle.org/current/userguide/gradle_wrapper.html#customizing_wrapper */
 tasks.named<Wrapper>("wrapper") {
-  gradleVersion = "8.6"
+  gradleVersion = "8.7"
   distributionType = Wrapper.DistributionType.BIN
 }
