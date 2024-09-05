@@ -9,8 +9,8 @@ val projectGroup: String by project
 val restAssuredVersion: String by project
 
 plugins {
-  kotlin("jvm") version "2.0.0"
-  kotlin("plugin.allopen") version "2.0.0"
+  kotlin("jvm") version "2.0.20"
+  kotlin("plugin.allopen") version "2.0.20"
   id("io.quarkus")
   id("idea")
 }

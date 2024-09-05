@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GRAAL_VM_HOME="${HOME}/.sdkman/candidates/java/22-graalce"
+GRAAL_VM_HOME="${HOME}/.sdkman/candidates/java/22.0.2-graalce"
 
 run() {
   projectName="$1"
