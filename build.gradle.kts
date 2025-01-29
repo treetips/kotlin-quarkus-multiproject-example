@@ -1,21 +1,17 @@
-val quarkusPlatformGroupId: String by project
-
-val quarkusPlatformArtifactId: String by project
-
-val quarkusPlatformVersion: String by project
-
 val projectGroup: String by project
 
-val restAssuredVersion: String by project
-
 plugins {
-  kotlin("jvm") version "2.0.20"
-  kotlin("plugin.allopen") version "2.0.20"
-  id("io.quarkus")
-  id("idea")
+  alias(libs.plugins.kotlin.jvm)
+  alias(libs.plugins.kotlin.plugin.allopen)
+  alias(libs.plugins.io.quarkus)
+  idea
 }
 
-repositories { mavenCentral() }
+repositories {
+  mavenLocal()
+  mavenCentral()
+  gradlePluginPortal()
+}
 
 subprojects {
   apply {
@@ -39,15 +35,10 @@ subprojects {
   }
 
   dependencies {
-    implementation(
-        enforcedPlatform(
-            "${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("io.quarkus:quarkus-kotlin")
-    implementation("io.quarkus:quarkus-arc")
-    implementation("io.quarkus:quarkus-config-yaml")
+    implementation(enforcedPlatform(rootProject.libs.quarkus.bom))
+    implementation(rootProject.libs.bundles.common.project.bundles)
 
-    testImplementation("io.quarkus:quarkus-junit5")
+    testImplementation(rootProject.libs.quarkus.junit5)
   }
 
   allOpen {
@@ -72,33 +63,33 @@ project(":share") { dependencies {} }
 project(":admin") {
   dependencies {
     implementation(project(":share"))
-    implementation("io.quarkus:quarkus-resteasy-reactive-qute")
+    implementation(rootProject.libs.bundles.admin.main)
   }
 }
 
 project(":graphql-server") {
   dependencies {
-    implementation("io.quarkus:quarkus-smallrye-graphql")
-    testImplementation("io.rest-assured:rest-assured:${restAssuredVersion}")
+    implementation(rootProject.libs.bundles.graphql.server.main)
+    testImplementation(rootProject.libs.bundles.graphql.server.test)
   }
 }
 
-project(":grpc-server") { dependencies { implementation("io.quarkus:quarkus-grpc") } }
+project(":grpc-server") {
+  dependencies { implementation(rootProject.libs.bundles.grpc.server.main) }
+}
 
 project(":restfulapi-server") {
   dependencies {
     implementation(project(":share"))
-    implementation(
-        enforcedPlatform("${quarkusPlatformGroupId}:quarkus-camel-bom:${quarkusPlatformVersion}"))
-    implementation("io.quarkus:quarkus-resteasy-jackson")
-    implementation("org.apache.camel.quarkus:camel-quarkus-bean-validator")
+    implementation(enforcedPlatform(rootProject.libs.quarkus.camel.bom))
+    implementation(rootProject.libs.bundles.restfulapi.server.main)
   }
 }
 
 project(":batch") {
   dependencies {
     implementation(project(":share"))
-    implementation("io.quarkus:quarkus-picocli")
+    implementation(rootProject.libs.bundles.batch.main)
   }
 }
 
