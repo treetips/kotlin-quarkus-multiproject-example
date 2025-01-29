@@ -1,0 +1,48 @@
+[versions]
+kotlinVersion = "2.1.10"
+quarkusVersion = "3.14.2"
+restAssuredVersion = "5.5.0"
+
+[plugins]
+# https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
+# https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.allopen
+kotlin-plugin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlinVersion" }
+# https://plugins.gradle.org/plugin/io.quarkus
+io-quarkus = { id = "io.quarkus", version.ref = "quarkusVersion" }
+
+[libraries]
+# Kotlin
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "quarkusVersion" }
+# Quarkus
+quarkus-kotlin = { module = "io.quarkus:quarkus-kotlin", version.ref = "quarkusVersion" }
+quarkus-arc = { module = "io.quarkus:quarkus-arc", version.ref = "quarkusVersion" }
+quarkus-config-yaml = { module = "io.quarkus:quarkus-config-yaml", version.ref = "quarkusVersion" }
+quarkus-resteasy-reactive-qute = { module = "io.quarkus:quarkus-resteasy-reactive-qute", version.ref = "quarkusVersion" }
+quarkus-smallrye-graphql = { module = "io.quarkus:quarkus-smallrye-graphql", version.ref = "quarkusVersion" }
+quarkus-grpc = { module = "io.quarkus:quarkus-grpc", version.ref = "quarkusVersion" }
+quarkus-resteasy-jackson = { module = "io.quarkus:quarkus-resteasy-jackson", version.ref = "quarkusVersion" }
+quarkus-picocli = { module = "io.quarkus:quarkus-picocli", version.ref = "quarkusVersion" }
+# Camel Quarkus
+camel-quarkus-bean-validator = { module = "org.apache.camel.quarkus:camel-quarkus-bean-validator", version.ref = "quarkusVersion" }
+# Bom
+quarkus-bom = { module = "io.quarkus.platform:quarkus-bom", version.ref = "quarkusVersion" }
+quarkus-camel-bom = { module = "io.quarkus.platform:quarkus-camel-bom", version.ref = "quarkusVersion" }
+
+rest-assured = { module = "io.rest-assured:rest-assured", version.ref = "restAssuredVersion" }
+
+quarkus-junit5 = { module = "io.quarkus:quarkus-junit5", version.ref = "quarkusVersion" }
+
+[bundles]
+common-project-bundles = [
+  "kotlin-stdlib-jdk8",
+  "quarkus-kotlin",
+  "quarkus-arc",
+  "quarkus-config-yaml",
+]
+admin-main = ["quarkus-resteasy-reactive-qute"]
+graphql-server-main = ["quarkus-smallrye-graphql"]
+graphql-server-test = ["rest-assured"]
+grpc-server-main = ["quarkus-grpc"]
+restfulapi-server-main = ["quarkus-resteasy-jackson", "camel-quarkus-bean-validator"]
+batch-main = ["quarkus-picocli"]
